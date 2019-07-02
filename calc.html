@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            background-color: #fad0c9ff;
+            font-family: Gabriela, 'Futura PT Book';
+            font-size: 14px;
+        }
+
+        .container {
+            background-color: gray;
+            box-shadow:  5px 5px 5px rgba(0, 0, 0, 0.3);          
+            width: 30%;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: #fff;
+            color: grey;
+            padding: 20px;
+            font-size: 14px;
+            width: 70px;
+            border: 1px solid #dcdcdc;
+        }
+
+        button:hover {
+            background-color: #f5f5f5;
+            color: #00f;
+            box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.5);                
+        }
+        .row,
+        form {
+            margin-left: 45px;            
+        }
+
+        input {
+            padding: 10px;
+            width: 265px;
+            font-size: 20px;
+            background-color:#fff;
+        }
+
+        #field {
+            border-bottom: none;
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            margin-bottom: -0.63em;
+        }
+
+        #result {
+            border-top: none;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            margin-top: -0.2em;
+        }
+
+        #equalsign {
+            width:200px;
+            margin-left: 100px;
+        }
+        .nothing {
+            height: 1em;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <p class="nothing"></p>
+        
+        <form action="" id="form">
+            <input type="text" name="" id="field" disabled>
+            <p><input type="text" style="text-align: right" id="result" disabled></p>
+        </form>
+        <div>
+            <div class="row">
+                <button class="fig" id="" onclick="addToDisplay('7')">7</button>
+                <button class="fig" id="" onclick="addToDisplay('8')">8</button>
+                <button class="fig" id="" onclick="addToDisplay('9')">9</button>
+                <button onclick="clearDisplays()">CLS</button>
+            </div>
+            <div class="row">
+                <button class="fig" id="" onclick="addToDisplay('4')">4</button>
+                <button class="fig" id="" onclick="addToDisplay('5')">5</button>
+                <button class="fig" id="" onclick="addToDisplay('6')">6</button>
+                <button class="fig" id="" onclick="addToDisplay('/')"> / </button>
+            </div>
+            <div class="row">
+                <button class="fig" id="" onclick="addToDisplay('1')">1</button>
+                <button class="fig" id="" onclick="addToDisplay('2')">2</button>
+                <button class="fig" id="" onclick="addToDisplay('3')">3</button>
+                <button class="fig" id="" onclick="addToDisplay('-')">-</button>
+            </div>
+            <div class="row">
+                <button class="fig" id="" onclick="addToDisplay('.')">.</button>
+                <button class="fig" id="" onclick="addToDisplay('0')">0</button>
+                <button class="fig" id="" onclick="addToDisplay('+')">+</button>
+                <button class="fig" id="" onclick="addToDisplay('*')">*</button>
+            </div>
+            <button onclick='calculate()' id="equalsign">=</button>
+        </div>
+        <p class="nothing"></p>
+    </div>
+
+    <script>
+        let form = document.querySelector('#form');
+        let display = document.querySelector('#field');
+        let result = document.querySelector('#result');
+
+        function addToDisplay(value) {
+            if (!value) {
+                return console.log('no value'); //error checker                
+            }
+            display.value = display.value + value;
+        }
+
+        function calculate() {
+            // // code
+            // if ((!display.value) || (display.value = "")) {
+            //     return console.log('err');
+            // }
+            let x = eval(display.value);        
+             // this evaluates everything in the input screen 
+            result.value = x; //this appends result to the result field
+            
+        }
+
+        function clearDisplays() {
+            form.reset();
+            result.value = "";
+        }
+    </script>
+</body>
+
+</html>
